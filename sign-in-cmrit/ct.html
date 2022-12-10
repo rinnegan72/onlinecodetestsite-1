@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!-- Form to redirect the page
+		to C online compiler -->
+	<form method="post" action=
+"https://www.jdoodle.com/api/redirect-to-post/c-online-compiler">
+
+		<textarea name="initScript"
+			rows="8" cols="80">
+		</textarea>
+
+		<input type="submit" value="Test">
+	</form>
+  <script type="text/javascript">
+    var request = require('request');
+
+var program = {
+    script : "",
+    language: "php",
+    versionIndex: "0",
+    clientId: "YourClientID",
+    clientSecret:"YourClientSecret"
+};
+request({
+    url: 'https://api.jdoodle.com/v1/execute',
+    method: "POST",
+    json: program
+},
+function (error, response, body) {
+    console.log('error:', error);
+    console.log('statusCode:', response && response.statusCode);
+    console.log('body:', body);
+})
+  </script>
+</body>
+
+</html>
